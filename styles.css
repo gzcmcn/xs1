@@ -1,0 +1,115 @@
+/* 基础样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f9f7f7, #dae2f8); /* 整体背景渐变色 */
+    text-align: center;
+}
+
+/* 网站标题 */
+header {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* 标题背景渐变色 */
+    color: #fff;
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+/* 小说封面 */
+.cover-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* 章节目录 */
+.chapter-list {
+    list-style: none;
+    padding: 0;
+}
+
+.chapter-list li {
+    margin: 15px 0;
+}
+
+.chapter-list a {
+    text-decoration: none;
+    color: #ff6f61;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.chapter-list a:hover {
+    color: #ff3b2f;
+}
+
+/* 章节内容 */
+.section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #ff6f61;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.section p {
+    text-align: left;
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+/* 导航按钮 */
+.navigation {
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff3b2f;
+    transform: translateY(-3px);
+}
+
+/* 页脚 */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
