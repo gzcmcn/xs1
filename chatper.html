@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>章节页面</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <!-- 网站标题 -->
+    <header>
+        <h1>我的小说</h1>
+        <p>欢迎阅读我的原创小说</p>
+    </header>
+
+    <!-- 章节内容 -->
+    <section id="chapter-content" class="section">
+        <h2 id="chapter-title">章节标题</h2>
+        <div id="markdown-content"></div>
+    </section>
+
+    <!-- 导航按钮 -->
+    <div class="navigation">
+        <a href="#" id="prev-chapter" class="btn">上一章</a>
+        <a href="index.html" class="btn">返回目录</a>
+        <a href="#" id="next-chapter" class="btn">下一章</a>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2023 我的小说. 保留所有权利.</p>
+    </footer>
+
+    <script>
+        // 获取当前章节文件名
+        const currentChapter = window.location.pathname.split('/').pop().replace('.html', '.md');
+        const chapterIndex = CHAPTERS.findIndex(chapter => chapter.file === currentChapter);
+
+        // 渲染 Markdown 内容
+        fetch(`chapters/${currentChapter}`)
+            .then(response => response.text())
+            .then(markdown => {
+                const md = window.markdownit();
+                document.getElementById('markdown-content').innerHTML = md.render(markdown);
+                document.getElementById('chapter-title').textContent = CHAPTERS[chapterIndex].title;
+            });
+
+        // 设置导航按钮
+        if (chapterIndex > 0) {
+            document.getElementById('prev-chapter').href = CHAPTERS[chapterIndex - 1].file.replace('.md', '.html');
+        } else {
+            document.getElementById('prev-chapter').style.display = 'none';
+        }
+
+        if (chapterIndex < CHAPTERS.length - 1) {
+            document.getElementById('next-chapter').href = CHAPTERS[chapterIndex + 1].file.replace('.md', '.html');
+        } else {
+            document.getElementById('next-chapter').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
